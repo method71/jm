@@ -1,0 +1,35 @@
+@import 'theme';
+
+* {
+	&, &::before, &::after {
+		box-sizing: border-box;
+	}
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100dvw;
+	height: 100dvh;
+	overflow: hidden;
+	background: var(--background-environment);
+
+	font-family: "Golos Text VF", sans-serif;
+	font-size: 16px;
+	line-height: 1;
+	color: var(--text-base);
+}
+
+.wrap {
+	width: 100%;
+	max-width: 48rem;
+}
+
+@mixin text-label-smallest {
+	font-size: var(--text-size-xs, 0.75rem);
+	font-weight: 500;
+	line-height: var(--text-height-xs, 1rem);
+}
+
+@import 'widget';
