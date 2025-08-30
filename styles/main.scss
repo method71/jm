@@ -24,6 +24,12 @@ body {
 .wrap {
 	width: 100%;
 	max-width: 48rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	padding: 1rem;
+	align-items: center;
+	justify-content: center;
 }
 
 .button {

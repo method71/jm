@@ -368,6 +368,21 @@ body {
 .wrap {
   width: 100%;
   max-width: 48rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+  padding: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .jm-widget {
@@ -376,6 +391,7 @@ body {
   --bg-color: #060127;
   font-size: 1rem;
   color: var(--text-base);
+  min-width: 20rem;
   width: 100%;
   height: 35em;
   display: -webkit-box;
@@ -387,7 +403,7 @@ body {
           flex-direction: column;
   position: relative;
   overflow: hidden;
-  z-index: 0;
+  resize: horizontal;
   border-radius: var(--border-radius-md, 0.75rem);
   background: url(../assets/widget-background.png) center no-repeat;
   background-size: var(--bg-size);
@@ -626,30 +642,16 @@ body {
   }
 }
 
-.jm-main {
-  height: 100%;
-  overflow-y: auto;
-}
-.jm-main::-webkit-scrollbar {
-  width: 0.5em;
-}
-.jm-main::-webkit-scrollbar-track {
-  border-radius: 999em;
-  background: var(--surface-primary-background, rgba(255, 255, 255, 0.1));
-}
-.jm-main::-webkit-scrollbar-thumb {
-  border-radius: var(--border-radius-full, 62.4375rem);
-  background: var(--icon-base, rgba(255, 255, 255, 0.6));
-}
-
 .jm-map {
   --gap: 3em;
-  --dash: rgba(255, 255, 255, .2), rgba(255, 255, 255, .2) 0.25em, transparent 0.5em, transparent 0.75em;
+  --dash: rgba(255, 255, 255, .3), rgba(255, 255, 255, .3) 0.25em, transparent 0.5em, transparent 0.75em;
   background: url(../assets/map-glow.png) top center no-repeat, -webkit-gradient(linear, left bottom, left top, from(rgba(6, 1, 39, 0.2)), color-stop(50%, rgba(46, 16, 135, 0.4)), to(rgba(194, 35, 218, 0.4)));
   background: url(../assets/map-glow.png) top center no-repeat, linear-gradient(0deg, rgba(6, 1, 39, 0.2) 0%, rgba(46, 16, 135, 0.4) 50%, rgba(194, 35, 218, 0.4) 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  container-type: inline-size;
+  height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -657,19 +659,41 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   gap: var(--gap);
-  padding: var(--gap);
+  padding: var(--gap) 0;
+  overflow: auto;
+}
+.jm-map::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+.jm-map::-webkit-scrollbar-track {
+  border-radius: 999em;
+  background: var(--surface-primary-background, rgba(255, 255, 255, 0.1));
+}
+.jm-map::-webkit-scrollbar-thumb {
+  border-radius: var(--border-radius-full, 62.4375rem);
+  background: var(--icon-base, rgba(255, 255, 255, 0.6));
 }
 .jm-map__steps-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 6em;
+  gap: var(--gap);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: var(--gap) 0;
   position: relative;
+}
+.jm-map__steps-group + .jm-map__steps-group {
+  margin-top: calc(var(--gap) * -1);
 }
 .jm-map__steps-group::before, .jm-map__steps-group::after {
   content: "";
@@ -684,6 +708,17 @@ body {
 }
 .jm-map__steps-group::after {
   bottom: 0;
+}
+@container (width < 30rem) {
+  .jm-map__steps-group {
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .jm-map__steps-group::before, .jm-map__steps-group::after {
+    right: 0;
+  }
 }
 
 .jm-step {
@@ -761,11 +796,11 @@ body {
   white-space: nowrap;
   text-align: center;
 }
+.jm-step--done::before, .jm-step--done::after {
+  background: rgba(255, 255, 255, 0.4);
+}
 .jm-step--done .jm-step__icon {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW9wYWNpdHk9Ii40IiBzdHJva2Utd2lkdGg9IjEuNSIgZD0ibTYgMTIgMy45OTUgNEwxOCA4Ii8+PC9zdmc+");
-}
-.jm-step--locked::before, .jm-step--locked::after {
-  opacity: 0.5;
 }
 .jm-step--locked .jm-step__icon {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0Ij48ZyBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii40Ij48cGF0aCBkPSJNMTIgMTcuMzVhMS42MyAxLjYzIDAgMSAwIDAtMy4yNiAxLjYzIDEuNjMgMCAwIDAgMCAzLjI2WiIvPjxwYXRoIGQ9Ik0xOC4yOCA5LjUzVjguMjhDMTguMjggNS41OCAxNy42MyAyIDEyIDJTNS43MiA1LjU4IDUuNzIgOC4yOHYxLjI1QzIuOTIgOS44OCAyIDExLjMgMiAxNC43OXYxLjg2QzIgMjAuNzUgMy4yNSAyMiA3LjM1IDIyaDkuM2M0LjEgMCA1LjM1LTEuMjUgNS4zNS01LjM1di0xLjg2YzAtMy40OS0uOTItNC45MS0zLjcyLTUuMjZaTTEyIDE4Ljc0Yy0xLjY3IDAtMy4wMi0xLjM2LTMuMDItMy4wMiAwLTEuNjcgMS4zNi0zLjAyIDMuMDItMy4wMmEzLjAzIDMuMDMgMCAwIDEgMy4wMiAzLjAyYzAgMS42Ny0xLjM1IDMuMDItMy4wMiAzLjAyWm0tNC42NS05LjNoLS4yM1Y4LjI4YzAtMi45My44My00Ljg4IDQuODgtNC44OHM0Ljg4IDEuOTUgNC44OCA0Ljg4djEuMTdINy4zNXYtLjAxWiIvPjwvZz48L3N2Zz4=");
@@ -838,7 +873,7 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 1;
   border-radius: var(--border-radius-md, 0.75rem);
   border: 1px solid var(--surface-primary-border, rgba(227, 227, 227, 0.1));
   background: var(--surface-primary-background, rgba(255, 255, 255, 0.1));

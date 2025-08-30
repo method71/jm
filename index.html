@@ -21,54 +21,22 @@
 				</button>
 			</div>
 
-			<div class="jm-main">
-				<div class="jm-map">
+			<div class="jm-map">
+				<div class="jm-step jm-step--locked">
+					<div class="jm-step__cell">
+						<div class="jm-step__icon"></div>
+					</div>
+					<div class="jm-step__title">Locked</div>
+				</div>
+
+				<span class="jm-map__steps-group">
 					<div class="jm-step jm-step--locked">
 						<div class="jm-step__cell">
 							<div class="jm-step__icon"></div>
 						</div>
 						<div class="jm-step__title">Locked</div>
 					</div>
-
-					<span class="jm-map__steps-group">
-						<div class="jm-step jm-step--locked">
-							<div class="jm-step__cell">
-								<div class="jm-step__icon"></div>
-							</div>
-							<div class="jm-step__title">Locked</div>
-						</div>
-					
-						<div class="jm-step jm-step--locked">
-							<div class="jm-step__cell">
-								<div class="jm-step__icon"></div>
-							</div>
-							<div class="jm-step__title">Locked</div>
-						</div>
-					</span>
-
-					<div class="jm-step jm-step--locked">
-						<div class="jm-step__cell">
-							<div class="jm-step__icon"></div>
-						</div>
-						<div class="jm-step__title">Locked</div>
-					</div>
-
-					<span class="jm-map__steps-group">
-						<div class="jm-step jm-step--locked">
-							<div class="jm-step__cell">
-								<div class="jm-step__icon"></div>
-							</div>
-							<div class="jm-step__title">Locked</div>
-						</div>
-						
-						<div class="jm-step jm-step--locked">
-							<div class="jm-step__cell">
-								<div class="jm-step__icon"></div>
-							</div>
-							<div class="jm-step__title">Locked</div>
-						</div>
-					</span>
-
+				
 					<div class="jm-step jm-step--locked">
 						<div class="jm-step__cell">
 							<div class="jm-step__icon"></div>
@@ -83,23 +51,51 @@
 						<div class="jm-step__title">Locked</div>
 					</div>
 
-					<div class="jm-step jm-step--available">
+					<div class="jm-step jm-step--locked">
 						<div class="jm-step__cell">
 							<div class="jm-step__icon"></div>
 						</div>
-						<div class="jm-step__title">Default</div>
+						<div class="jm-step__title">Locked</div>
 					</div>
+				</span>
 
+				<div class="jm-step jm-step--available">
+					<div class="jm-step__cell">
+						<div class="jm-step__icon"></div>
+					</div>
+					<div class="jm-step__title">Default</div>
+				</div>
+
+				<span class="jm-map__steps-group">
 					<div class="jm-step jm-step--done">
 						<div class="jm-step__cell">
 							<div class="jm-step__icon"></div>
 						</div>
 						<div class="jm-step__title">Done</div>
 					</div>
+					
+					<div class="jm-step jm-step--available">
+						<div class="jm-step__cell">
+							<div class="jm-step__icon"></div>
+						</div>
+						<div class="jm-step__title">Default</div>
+					</div>
+				</span>
+
+				<div class="jm-step jm-step--done">
+					<div class="jm-step__cell">
+						<div class="jm-step__icon"></div>
+					</div>
+					<div class="jm-step__title">Done</div>
+				</div>
+
+				<div class="jm-step jm-step--done">
+					<div class="jm-step__cell">
+						<div class="jm-step__icon"></div>
+					</div>
+					<div class="jm-step__title">Start</div>
 				</div>
 			</div>
-
-			<div class="overlay jm-overlay" style="display: none"></div>
 
 			<div class="jm-window" style="display: none">
 				<div class="jm-window__body">
@@ -124,6 +120,9 @@
 				<div class="jm-fg__glow"></div>
 
 				<div class="jm-fg__comets">
+					<div class="comet"></div>
+					<div class="comet"></div>
+
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 108 7">
 						<g style="mix-blend-mode:plus-lighter">
 							<path fill="url(#a)" fill-rule="evenodd" d="M4 3.5a.5.5 0 0 1 .5-.5h103a.5.5 0 0 1 0 1H4.5a.5.5 0 0 1-.5-.5Z"
@@ -171,11 +170,18 @@
 					</svg>
 				</div>
 			</div>
+
+			<div class="overlay jm-overlay" style="display: none"></div>
 		</div>
 	</div>
 
 	<script>
-		document.querySelector('.jm-step--available').scrollIntoView();
+		document.querySelector('.jm-step--available').scrollIntoView({
+			behavior: 'smooth',
+			block: 'center',
+			container: 'nearest',
+			inline: 'center',
+		});
 	</script>
 </body>
 </html>
