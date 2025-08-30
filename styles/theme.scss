@@ -1,3 +1,23 @@
+@mixin text-label-smallest {
+	font-size: var(--text-size-xs, 0.75rem);
+	font-weight: 500;
+	line-height: var(--text-height-xs, 1rem);
+}
+
+@mixin text-heading-3 {
+	font-size: var(--text-size-xl, 1.5rem);
+	font-weight: 600;
+	line-height: var(--text-height-xl, 2rem);
+}
+
+@mixin text-body-small {
+	color: var(--text-base, rgba(255, 255, 255, 0.80));
+	text-align: center;
+	font-size: var(--text-size-sm, 0.875rem);
+	font-style: normal;
+	line-height: var(--text-height-sm, 1.25rem);
+}
+
 :root {
 	/* basic palette, don't use in interfaces directly */
 	--base-100: hsl(0 0 96%);
