@@ -651,7 +651,6 @@ body {
   display: -ms-flexbox;
   display: flex;
   container-type: inline-size;
-  height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -664,17 +663,20 @@ body {
           justify-content: start;
   gap: var(--gap);
   padding: var(--gap) 0;
+}
+.jm-map-wrap {
+  height: 100%;
   overflow: auto;
 }
-.jm-map::-webkit-scrollbar {
+.jm-map-wrap::-webkit-scrollbar {
   width: 0.5em;
   height: 0.5em;
 }
-.jm-map::-webkit-scrollbar-track {
+.jm-map-wrap::-webkit-scrollbar-track {
   border-radius: 999em;
   background: var(--surface-primary-background, rgba(255, 255, 255, 0.1));
 }
-.jm-map::-webkit-scrollbar-thumb {
+.jm-map-wrap::-webkit-scrollbar-thumb {
   border-radius: var(--border-radius-full, 62.4375rem);
   background: var(--icon-base, rgba(255, 255, 255, 0.6));
 }

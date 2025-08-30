@@ -187,27 +187,30 @@
 				linear-gradient(0deg, rgba(6, 1, 39, 0.20) 0%, rgba(46, 16, 135, 0.40) 50%, rgba(194, 35, 218, 0.40) 100%);
 	display: flex;
 	container-type: inline-size;
-	height: 100%;
 	flex-direction: column;
 	align-items: center;
 	justify-content: start;
 	gap: var(--gap);
 	padding: var(--gap) 0;
-	overflow: auto;
+	
+	&-wrap {
+		height: 100%;
+		overflow: auto;
 
-	&::-webkit-scrollbar {
-		width: 0.5em;
-		height: 0.5em;
-	}
-	
-	&::-webkit-scrollbar-track {
-		border-radius: 999em;
-		background: var(--surface-primary-background, rgba(255, 255, 255, 0.10));
-	}
-	
-	&::-webkit-scrollbar-thumb {
-		border-radius: var(--border-radius-full, 62.4375rem);
-		background: var(--icon-base, rgba(255, 255, 255, 0.60));
+		&::-webkit-scrollbar {
+			width: 0.5em;
+			height: 0.5em;
+		}
+		
+		&::-webkit-scrollbar-track {
+			border-radius: 999em;
+			background: var(--surface-primary-background, rgba(255, 255, 255, 0.10));
+		}
+		
+		&::-webkit-scrollbar-thumb {
+			border-radius: var(--border-radius-full, 62.4375rem);
+			background: var(--icon-base, rgba(255, 255, 255, 0.60));
+		}
 	}
 
 	&__steps-group {
