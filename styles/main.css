@@ -729,7 +729,7 @@ body {
   -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4OCIgaGVpZ2h0PSI4MCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDg4IDgwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNjEuOTcgMGMyLjg2IDAgNS41IDEuNTQ1IDYuOTE0IDQuMDQ3bDE4LjA3OCAzMmE4LjA0MiA4LjA0MiAwIDAgMSAwIDcuOTA2bC0xOC4wNzggMzJBNy45NDQgNy45NDQgMCAwIDEgNjEuOTcgODBIMjYuMDNjLTIuODYgMC01LjUtMS41NDUtNi45MTQtNC4wNDdsLTE4LjA3Ny0zMmE4LjA0MiA4LjA0MiAwIDAgMSAwLTcuOTA2bDE4LjA3Ny0zMkE3Ljk0NCA3Ljk0NCAwIDAgMSAyNi4wMyAwaDM1Ljk0WiIvPjwvc3ZnPg==");
           mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4OCIgaGVpZ2h0PSI4MCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDg4IDgwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNjEuOTcgMGMyLjg2IDAgNS41IDEuNTQ1IDYuOTE0IDQuMDQ3bDE4LjA3OCAzMmE4LjA0MiA4LjA0MiAwIDAgMSAwIDcuOTA2bC0xOC4wNzggMzJBNy45NDQgNy45NDQgMCAwIDEgNjEuOTcgODBIMjYuMDNjLTIuODYgMC01LjUtMS41NDUtNi45MTQtNC4wNDdsLTE4LjA3Ny0zMmE4LjA0MiA4LjA0MiAwIDAgMSAwLTcuOTA2bDE4LjA3Ny0zMkE3Ljk0NCA3Ljk0NCAwIDAgMSAyNi4wMyAwaDM1Ljk0WiIvPjwvc3ZnPg==");
   background-image: url(../assets/step-cell.png);
-  background-color: rgba(6, 1, 39, 0.15);
+  background-color: rgba(255, 255, 255, 0.05);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -771,7 +771,7 @@ body {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0Ij48ZyBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii40Ij48cGF0aCBkPSJNMTIgMTcuMzVhMS42MyAxLjYzIDAgMSAwIDAtMy4yNiAxLjYzIDEuNjMgMCAwIDAgMCAzLjI2WiIvPjxwYXRoIGQ9Ik0xOC4yOCA5LjUzVjguMjhDMTguMjggNS41OCAxNy42MyAyIDEyIDJTNS43MiA1LjU4IDUuNzIgOC4yOHYxLjI1QzIuOTIgOS44OCAyIDExLjMgMiAxNC43OXYxLjg2QzIgMjAuNzUgMy4yNSAyMiA3LjM1IDIyaDkuM2M0LjEgMCA1LjM1LTEuMjUgNS4zNS01LjM1di0xLjg2YzAtMy40OS0uOTItNC45MS0zLjcyLTUuMjZaTTEyIDE4Ljc0Yy0xLjY3IDAtMy4wMi0xLjM2LTMuMDItMy4wMiAwLTEuNjcgMS4zNi0zLjAyIDMuMDItMy4wMmEzLjAzIDMuMDMgMCAwIDEgMy4wMiAzLjAyYzAgMS42Ny0xLjM1IDMuMDItMy4wMiAzLjAyWm0tNC42NS05LjNoLS4yM1Y4LjI4YzAtMi45My44My00Ljg4IDQuODgtNC44OHM0Ljg4IDEuOTUgNC44OCA0Ljg4djEuMTdINy4zNXYtLjAxWiIvPjwvZz48L3N2Zz4=");
 }
 .jm-step--locked .jm-step__cell {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(6, 1, 39, 0.15);
 }
 .jm-step:not(.jm-step--locked):not(.jm-step--done) {
   cursor: pointer;
@@ -785,16 +785,38 @@ body {
   -webkit-transform: scale(1);
           transform: scale(1);
 }
-.jm-step:not(.jm-step--locked):not(.jm-step--done) .jm-step__title {
-  background: rgba(6, 1, 39, 0.2);
-  color: #fff;
-}
-.jm-step:not(.jm-step--locked):not(.jm-step--done)::before {
+.jm-step:not(.jm-step--locked):not(.jm-step--done) .jm-step__cell::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url(../assets/current-indicator.png) no-repeat center;
   background-size: cover;
+  -webkit-animation: spin 10s ease-in-out infinite;
+          animation: spin 10s ease-in-out infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.jm-step:not(.jm-step--locked):not(.jm-step--done) .jm-step__title {
+  background: rgba(6, 1, 39, 0.2);
+  color: #fff;
 }
 
 .jm-window {

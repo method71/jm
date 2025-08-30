@@ -271,7 +271,7 @@
 		backdrop-filter: blur(20px);
 		mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4OCIgaGVpZ2h0PSI4MCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDg4IDgwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNjEuOTcgMGMyLjg2IDAgNS41IDEuNTQ1IDYuOTE0IDQuMDQ3bDE4LjA3OCAzMmE4LjA0MiA4LjA0MiAwIDAgMSAwIDcuOTA2bC0xOC4wNzggMzJBNy45NDQgNy45NDQgMCAwIDEgNjEuOTcgODBIMjYuMDNjLTIuODYgMC01LjUtMS41NDUtNi45MTQtNC4wNDdsLTE4LjA3Ny0zMmE4LjA0MiA4LjA0MiAwIDAgMSAwLTcuOTA2bDE4LjA3Ny0zMkE3Ljk0NCA3Ljk0NCAwIDAgMSAyNi4wMyAwaDM1Ljk0WiIvPjwvc3ZnPg==");
 		background-image: url(../assets/step-cell.png);
-		background-color: rgba(6, 1, 39, 0.15);
+		background-color: rgba(255, 255, 255, 0.05);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -323,7 +323,7 @@
 		}
 
 		.jm-step__cell {
-			background-color: rgba(255, 255, 255, 0.10);
+			background-color: rgba(6, 1, 39, 0.15);
 		}
 	}
 
@@ -339,17 +339,25 @@
 			transform: scale(1);
 		}
 
+		.jm-step__cell {
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: url(../assets/current-indicator.png) no-repeat center;
+				background-size: cover;
+				animation: spin 10s ease-in-out infinite;
+
+				@keyframes spin {
+					0% { transform: rotate(0deg); }
+					50% { transform: rotate(360deg); }
+				}
+			}
+		}
+
 		.jm-step__title {
 			background: rgba(6, 1, 39, 0.20);
 			color: #fff;
-		}
-
-		&::before {
-			content: '';
-			position: absolute;
-			inset: 0;
-			background: url(../assets/current-indicator.png) no-repeat center;
-			background-size: cover;
 		}
 	}
 }
