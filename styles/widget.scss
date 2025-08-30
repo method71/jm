@@ -60,24 +60,25 @@
 	overflow: hidden;
 	mix-blend-mode: plus-lighter;
 
-	&__rays {
-		svg {
+	&__rays {		
+		.star {
 			position: absolute;
+			display: block;
 			left: 50%;
 			transform: translateX(-50%);
-			top: -150%;
-			opacity: .2;
-			
-		}
-		
-		.star {
-			&-1 {
-				animation-name: star;
-			}
+			bottom: 30%;
 
-			&-2 {
-				opacity: .5;
-			}
+			width: 1312px;
+			height: 1312px;
+			margin-left: -656px;
+			transform: rotate(0deg);
+
+			background-image: url(../assets/star.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-size: contain;
+			opacity: .1;
 
 			animation-direction: alternate;
 			animation-duration: 90s;
@@ -85,12 +86,32 @@
 			animation-iteration-count: infinite;
 			transform-origin: 50% 50%;
 
-			fill: #C223DA;
+			&-1 {
+				animation-name: star-1;
+			}
+
+			&-2 {
+				transform: scale(.8);
+				opacity: .3;
+				animation: star-2 1s ease-in-out infinite;
+				animation-direction: alternate;
+			}
 		}
 
-		@keyframes star {
+		@keyframes star-1 {
 			0% { transform: rotate(180deg); }
 			100% { transform: rotate(0deg); };
+		}
+
+		@keyframes star-2 {
+			0% {
+				transform: scale(.8);
+				opacity: .1;
+			}
+			100% {
+				transform: scale(.7);
+				opacity: .3;				
+			};
 		}
 	}
 

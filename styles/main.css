@@ -442,15 +442,24 @@ body {
   overflow: hidden;
   mix-blend-mode: plus-lighter;
 }
-.jm-fg__rays svg {
+.jm-fg__rays .star {
   position: absolute;
+  display: block;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  top: -150%;
-  opacity: 0.2;
-}
-.jm-fg__rays .star {
+  bottom: 30%;
+  width: 1312px;
+  height: 1312px;
+  margin-left: -656px;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  background-image: url(../assets/star.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  opacity: 0.1;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
   -webkit-animation-duration: 90s;
@@ -461,16 +470,21 @@ body {
           animation-iteration-count: infinite;
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
-  fill: #C223DA;
 }
 .jm-fg__rays .star-1 {
-  -webkit-animation-name: star;
-          animation-name: star;
+  -webkit-animation-name: star-1;
+          animation-name: star-1;
 }
 .jm-fg__rays .star-2 {
-  opacity: 0.5;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: 0.3;
+  -webkit-animation: star-2 1s ease-in-out infinite;
+          animation: star-2 1s ease-in-out infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
 }
-@-webkit-keyframes star {
+@-webkit-keyframes star-1 {
   0% {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
@@ -480,7 +494,7 @@ body {
             transform: rotate(0deg);
   }
 }
-@keyframes star {
+@keyframes star-1 {
   0% {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
@@ -488,6 +502,30 @@ body {
   100% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes star-2 {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    opacity: 0.1;
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    opacity: 0.3;
+  }
+}
+@keyframes star-2 {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    opacity: 0.1;
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    opacity: 0.3;
   }
 }
 .jm-fg__glow {
