@@ -192,7 +192,7 @@
 	justify-content: start;
 	gap: var(--gap);
 	padding: var(--gap) 0;
-	
+
 	&-wrap {
 		height: 100%;
 		overflow: auto;
@@ -383,17 +383,16 @@
 .jm-window {
 	display: flex;
 	max-width: 25rem;
-	width: 100%;
+	width: calc(100% - 1rem);
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
-
 
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 1;
+	z-index: 3;
 
 	border-radius: var(--border-radius-md, 0.75rem);
 	border: 1px solid var(--surface-primary-border, rgba(227, 227, 227, 0.10));
@@ -405,6 +404,8 @@
 	&__body {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		gap: 1em;
 		padding: 1.5em;
 	}
@@ -424,5 +425,37 @@
 
 	&__description {
 		@include text-body-small;
+	}
+}
+
+.jm-shine {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+
+		width: 2rem;
+		height: 110%;
+		transform: rotate(15deg);
+
+		position: absolute;
+		top: -5%;
+		right: 100%;
+
+		background: linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.20) 50%, rgba(255, 255, 255, 0.00) 100%);
+		mix-blend-mode: lighten;
+		animation: shine 2s ease-in-out infinite;
+		animation-fill-mode: forwards;
+		animation-direction: forwards;
+
+		@keyframes shine {
+			0% {
+				right: 100%;
+			}
+			50% {
+				right: -100%;
+			}
+		}
 	}
 }
