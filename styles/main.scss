@@ -33,7 +33,56 @@ body {
 }
 
 .button {
+	display: inline-flex;
+	padding: 0.5rem 0.75rem;
+	justify-content: center;
+	align-items: center;
+	gap: 0.25rem;
+
+	font-family: "Golos Text VF";
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.5rem;
+	color: var(--text-strong, #1C1C1C);
+
+	cursor: pointer;
+
+	.text-wrap {
+		padding: 0 0.25rem;
+	}
+
+	&--small {
+		padding: 0.25rem 0.5rem;
+		font-size: 0.875rem;
+		line-height: 1.5rem;
+	}
+
+	&--large {
+		padding: 0.75rem 1rem;
+		gap: 0.25rem;
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
 	
+	&--primary {
+		border-radius: var(--border-radius-sm, 0.5rem);
+		border: 1px solid var(--brand-400, #4EB97E);
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%), var(--surface-brand-background, #2C9D62);
+		box-shadow: 0 0 2px 0 rgba(8, 40, 13, 0.02), 0 2px 4px 0 rgba(8, 40, 13, 0.05);
+		color: var(--text-on-brand, #EFFAF3);
+	}
+
+	&--secondary {
+		border-radius: var(--border-radius-sm, 0.5rem);
+		border: 1px solid var(--surface-primary-border, #E3E3E3);
+		background: var(--surface-primary-background, #FFF);
+		box-shadow: 0 0 2px 0 rgba(8, 40, 13, 0.02), 0 2px 4px 0 rgba(8, 40, 13, 0.05);
+	}
+
+	&--tretiary {
+		border-radius: var(--border-radius-sm, 0.5rem);
+		box-shadow: 0 0 2px 0 rgba(8, 40, 13, 0.02), 0 2px 4px 0 rgba(8, 40, 13, 0.05);
+	}
 }
 
 @import 'widget';
