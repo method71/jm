@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<div class="jm-widget" data-theme="DarkAlpha">
+		<div class="jm-widget" id="jm-widget" data-theme="DarkAlpha">
 			<div class="jm-header">
 				<button class="jm-header__button">
 					CompanyName
@@ -27,10 +27,38 @@
 						<div class="jm-step__cell">
 							<div class="jm-step__icon"></div>
 						</div>
-						<div class="jm-step__title">Locked</div>
+						<div class="jm-step__title">locked</div>
+					</div>
+
+					<div class="jm-step jm-step--locked">
+						<div class="jm-step__cell">
+							<div class="jm-step__icon"></div>
+						</div>
+						<div class="jm-step__title">locked</div>
+					</div>
+
+					<div class="jm-step jm-step--locked">
+						<div class="jm-step__cell">
+							<div class="jm-step__icon"></div>
+						</div>
+						<div class="jm-step__title">locked</div>
+					</div>
+
+					<div class="jm-step jm-step--locked">
+						<div class="jm-step__cell">
+							<div class="jm-step__icon"></div>
+						</div>
+						<div class="jm-step__title">locked</div>
+					</div>
+
+					<div class="jm-step jm-step--available">
+						<div class="jm-step__cell">
+							<div class="jm-step__icon"></div>
+						</div>
+						<div class="jm-step__title">Default</div>
 					</div>
 				
-					<span class="jm-map__steps-group">
+					<span class="jm-map__steps-group" data-count="4">
 						<div class="jm-step jm-step--locked">
 							<div class="jm-step__cell">
 								<div class="jm-step__icon"></div>
@@ -38,11 +66,11 @@
 							<div class="jm-step__title">Locked</div>
 						</div>
 				
-						<div class="jm-step jm-step--locked">
+						<div class="jm-step jm-step--done">
 							<div class="jm-step__cell">
 								<div class="jm-step__icon"></div>
 							</div>
-							<div class="jm-step__title">Locked</div>
+							<div class="jm-step__title">Done</div>
 						</div>
 				
 						<div class="jm-step jm-step--locked">
@@ -60,14 +88,14 @@
 						</div>
 					</span>
 				
-					<div class="jm-step jm-step--available">
+					<div class="jm-step jm-step--done">
 						<div class="jm-step__cell">
 							<div class="jm-step__icon"></div>
 						</div>
-						<div class="jm-step__title">Default</div>
+						<div class="jm-step__title">Done</div>
 					</div>
 				
-					<span class="jm-map__steps-group">
+					<span class="jm-map__steps-group jm-map__steps-group--done">
 						<div class="jm-step jm-step--done">
 							<div class="jm-step__cell">
 								<div class="jm-step__icon"></div>
@@ -99,7 +127,7 @@
 				</div>
 			</div>
 
-			<div class="jm-window">
+			<div class="jm-window" style="display: none;">
 				<div class="jm-window__body">
 					<div class="jm-window__text">
 						<div class="jm-window__title">Step title</div>
@@ -107,7 +135,7 @@
 					</div>
 
 					<div class="jm-shine">
-						<button class="button button--primary button--large">
+						<button onclick="closeStep()" class="button button--primary button--large">
 							<span class="text-wrap">Button</span>
 						</button>
 					</div>
@@ -174,17 +202,10 @@
 				</div>
 			</div>
 
-			<div class="overlay jm-overlay"></div>
+			<div class="overlay jm-overlay" style="display: none;"></div>
 		</div>
 	</div>
 
-	<script>
-		document.querySelector('.jm-step--available').scrollIntoView({
-			behavior: 'smooth',
-			block: 'center',
-			container: 'nearest',
-			inline: 'center',
-		});
-	</script>
+	<script src="widget.js"></script>
 </body>
 </html>

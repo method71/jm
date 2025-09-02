@@ -934,8 +934,34 @@ body {
   border-radius: var(--border-radius-md, 0.75rem);
   border: 1px solid var(--surface-primary-border, rgba(227, 227, 227, 0.1));
   background: var(--surface-primary-background, rgba(255, 255, 255, 0.1));
-  /* background-blur */
   backdrop-filter: blur(8px);
+  view-transition-name: window;
+}
+.jm-window ::view-transition-old() {
+  zoom: 0.5;
+}
+.jm-window ::view-transition-new() {
+  zoom: 1;
+}
+@-webkit-keyframes window {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes window {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 .jm-window__body {
   display: -webkit-box;
